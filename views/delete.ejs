@@ -1,0 +1,9 @@
+<%- include("partials/header"); -%>
+    <form action="/delete" method="POST">
+        <input type="hidden" name="postid" value=<%=pid%>>
+        <p>Are you sure you want to delete?</p>
+        <button type="submit" class="rm-btn">Delete</button><br>
+        <a href="/">Cancel</a>
+
+    </form>
+    <%- include("partials/footer"); -%>

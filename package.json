@@ -1,0 +1,31 @@
+{
+  "name": "placement",
+  "version": "1.0.0",
+  "description": "Helps juniors to understand about the working of placements",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Madhu,Nikitha",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "connect-mongo": "^4.6.0",
+    "dompurify": "^2.3.8",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "jsdom": "^20.0.0",
+    "marked": "^4.0.17",
+    "medium-editor": "^5.23.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.4.0",
+    "mongoose-findorcreate": "^3.0.0",
+    "nodemon": "^2.0.16",
+    "passport": "^0.6.0",
+    "passport-local-mongoose": "^7.1.2",
+    "path": "^0.12.7",
+    "react-medium-editor": "^1.8.1"
+  }
+}

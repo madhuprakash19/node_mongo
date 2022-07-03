@@ -1,0 +1,14 @@
+<%- include("partials/header"); -%>
+    you are viewing <%= userName %> profile <br> <br> <br>
+        <hr>
+        <% userPost.forEach(function(post){ %>
+
+            Title : <%= post.title %> <br>
+                description : <%= post.content %> <br>
+                    markdown : <%= post.markdown %> <br>
+                        <a href="/test/<%=post._id%>">Edit</a>
+                        <hr>
+
+
+                        <% }) %>
+                            <%- include("partials/footer"); -%>

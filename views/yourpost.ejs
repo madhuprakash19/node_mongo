@@ -1,0 +1,20 @@
+<%- include("partials/header"); -%>
+<h1 class="text-center my-name">Welcome <%= userName  %> </h1> 
+<h2 class="text-center"><em> My Posts </em></h1>
+        <% userPost.forEach(function(post){ %>
+
+<div class="card post-box">
+    <div class="card-body">
+        Title : <%= post.title %> <br>
+        description : <%= post.content %> <br>
+            markdown : <%= post.markdown %> <br>
+                <a style="margin:5px;" class="btn btn-primary" href="/test/<%=post._id%>">Edit  <span><a style="marigin:5px;"  class='btn btn-danger' href="/delete/<%=post._id%>">Delete</a></span></a>
+    </div>
+</div>
+            
+                       
+                        
+
+
+                        <% }) %>
+                            <%- include("partials/footer"); -%>

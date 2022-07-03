@@ -1,0 +1,60 @@
+<%- include("partials/header"); -%>
+    <div class="container-fluid home-body">
+
+        <% if (authenticated) { %>
+            <h1>Compose your own post.</h1>
+
+            <form action="/compose" method="POST">
+                <div class="form-group">
+                    <label for="post-title">Title</label>
+                    <input type="text" name="postTitle" class="form-control" id="post-title"><br>
+
+                <div class="form-row" >
+                   <div  class="form-group col-md-6">
+                    <label>Company Name</label>
+                    <input type="text"  class="form-control"  name="company">
+                   </div>
+
+                    <div  class="form-group col-md-6" >
+                        <label>Role offered</label>
+                    <input type="text"  class="form-control" name="position"><br>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6"  >
+                        <label>Salary</label>
+                        <input type="text"  class="form-control" name="salary"><br>
+                    </div>
+
+                    <div class="form-group col-md-6" >
+                        <label>Start Date</label>
+                        <input type="text"  class="form-control" name="startdate"><br>
+                    </div>
+                    <div class="form-group col-md-6" >
+                        <label>Rounds Attended</label>
+                        <input type="text"   class="form-control" name="rounds"><br>
+                    </div>
+                    <div  class="form-group col-md-6">
+                        <label for="postbody">Small Description</label>
+                        <input type="text" name="postBody" class="form-control" id="postbody"><br>
+                    </div>
+
+                </div>
+                </div>
+
+              
+                <div class="form-group">
+                    <label for="postmarkdown">Detailed Explanation</label>
+
+                    <textarea name="postMarkdown" class="form-control" id="postmarkdown" rows="15"></textarea>
+                </div>
+                <button type="submit" class="rm-btn">Submit</button><br>
+
+            </form>
+
+
+            <% } else { %>
+                <h1>Please <a href="/signin">Sign In </a>to compose your own post </h1>
+                <% } %>
+    </div>
+    <%- include("partials/footer"); -%>
