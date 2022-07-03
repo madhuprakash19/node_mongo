@@ -367,7 +367,7 @@ app.post("/update", (req, res) => {
 
 app.get("/delete/:id", (req, res) => {
     const id = req.params.id;
-    res.render("delete", { pid: id })
+    res.render("delete", { pid: id ,authenticated: req.isAuthenticated()})
 });
 
 app.post("/delete", (req, res) => {
