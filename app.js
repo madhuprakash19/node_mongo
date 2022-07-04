@@ -249,32 +249,39 @@ app.post("/compose", (req, res) => {
 
 app.get("/yourpost", (req, res) => {
     if (req.isAuthenticated()) {
+        User.findById(req.user.id, (err, foundUser) => {
         var query = { authorId: req.user.id };
         db.collection("posts").find(query).toArray(function (err, result) {
             if (err) throw err;
             res.render("yourpost", {
                 userPost: result,
-                userName: req.user.userName,
+                userName: foundUser.userHandle,
                 authenticated: req.isAuthenticated()
             })
         });
-    } else {
+    }) }else {
         res.send("login to see");
     }
 });
 
 app.get("/otherpost/:id", (req, res) => {
     if (req.isAuthenticated()) {
+        User.findById(req.params.id, (err, foundUser) => {
         var query = { authorId: req.params.id };
         db.collection("posts").find(query).toArray(function (err, result) {
             if (err) throw err;
             res.render("otherpost", {
                 userPost: result,
-                userName: req.user.userName,
+                userName: foundUser.userHandle,
+                branch: foundUser.branch,
+                usn:foundUser.USN,
+                sem : foundUser.current_sem,
                 authenticated: req.isAuthenticated()
             })
         });
-    } else {
+    }) 
+}
+else {
         res.send("login to see");
     }
 });
@@ -402,9 +409,14 @@ app.get("/posts/:postId", (req, res) => {
                                         id: foundPost._id,
                                         authorId: foundPost.authorId,
                                         title: foundPost.title,
+                                        company:foundPost.company,
+                                        company_position:foundPost.company_position,
+                                        salary:foundPost.salary,
+                                        rounds:foundPost.rounds,
                                         author: foundPost.account,
                                         content: foundPost.content,
                                         markdown: foundPost.markdown,
+                                        time:foundPost.timestamp,
                                         visitor: false,
                                         authenticated: req.isAuthenticated(),
                                     });
@@ -413,9 +425,14 @@ app.get("/posts/:postId", (req, res) => {
                                         id: foundPost._id,
                                         authorId: foundPost.authorId,
                                         title: foundPost.title,
+                                        company:foundPost.company,
+                                        company_position:foundPost.company_position,
+                                        salary:foundPost.salary,
+                                        rounds:foundPost.rounds,
                                         author: foundPost.account,
                                         content: foundPost.content,
                                         markdown: foundPost.markdown,
+                                        time:foundPost.timestamp,
                                         visitor: true,
                                         authenticated: req.isAuthenticated(),
                                     });
@@ -430,9 +447,14 @@ app.get("/posts/:postId", (req, res) => {
                         id: foundPost._id,
                         authorId: foundPost.authorId,
                         title: foundPost.title,
+                        company:foundPost.company,
+                        company_position:foundPost.company_position,
+                        salary:foundPost.salary,
+                        rounds:foundPost.rounds,
                         author: foundPost.account,
                         content: foundPost.content,
                         markdown: foundPost.markdown,
+                        time:foundPost.timestamp,
                         visitor: true,
                         authenticated: req.isAuthenticated(),
                     });

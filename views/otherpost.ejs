@@ -1,14 +1,22 @@
 <%- include("partials/header"); -%>
-    you are viewing <%= userName %> profile <br> <br> <br>
-        <hr>
+<div class="container">
+    <div class="jumbotron">
+        <h2 class="text muted text-center">You are viewing <%= userName %>'s profile</h2>  <br>
+        <b>Branch: </b><%= branch  %> <br>
+        <b>Sem: </b><%= sem  %> <br>
+        <b>USN: </b><%= usn  %> <br> <br> <hr>
+         <h3>  <%= userName %>'s recent post</h3> <br>
         <% userPost.forEach(function(post){ %>
-
-            Title : <%= post.title %> <br>
-                description : <%= post.content %> <br>
-                    markdown : <%= post.markdown %> <br>
-                        <a href="/test/<%=post._id%>">Edit</a>
+            <p>
+            <b>Title</b> : <%= post.title %> <br>
+                <b>Description</b> : <%= post.content %> <br>
+                    <p>
+                    <a href="/posts/<%=post._id%>">Read More</a>
                         <hr>
 
 
                         <% }) %>
-                            <%- include("partials/footer"); -%>
+    </div>
+</div>
+      
+<%- include("partials/footer"); -%>
